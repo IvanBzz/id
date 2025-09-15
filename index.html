@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Собственные стили -->
     <style>
+        /* Базовые стили для сброса отступов и задания основных параметров */
         * {
             margin: 0;
             padding: 0;
@@ -25,144 +26,132 @@
             position: relative;
         }
         
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
         /* Стили для header */
         header {
             width: 100%;
             height: 250px;
             position: relative;
-            overflow: hidden;
             padding: 20px 50px;
         }
         
-        .logo {
+        .header-nav {
+            position: absolute;
+            left: 50px;
+            top: 133px;
+            display: flex;
+            gap: 32px;
+        }
+        
+        .header-nav a {
+            font-size: 18px;
+            font-weight: 400;
+            position: relative;
+        }
+        
+        .header-nav a:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            border: 1px solid black;
+            right: -19px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .header-nav a:nth-child(2) {
+            margin-left: 20px;
+        }
+        
+        .header-nav a:nth-child(3) {
+            margin-left: 40px;
+        }
+        
+        .header-nav-underline {
+            position: absolute;
+            height: 1px;
+            background: black;
+        }
+        
+        .underline-lots {
+            width: 151px;
+            left: 148px;
+            top: 155px;
+        }
+        
+        .underline-about {
+            width: 110px;
+            left: 331px;
+            top: 155px;
+        }
+        
+        .logo-link {
             position: absolute;
             width: 148px;
             height: 105px;
             left: 478px;
             top: 92px;
-            overflow: hidden;
+            display: block;
         }
         
         .logo-inner {
-            width: 124.05px;
-            height: 94.84px;
+            width: 124px;
+            height: 95px;
             position: absolute;
-            left: 11.39px;
-            top: 2.79px;
-            outline: 6px black solid;
-            outline-offset: -3px;
+            left: 11px;
+            top: 3px;
+            border: 3px solid black;
         }
         
         .logo-bg {
-            width: 129.11px;
-            height: 104.65px;
+            width: 129px;
+            height: 105px;
             position: absolute;
-            left: 9.03px;
-            top: 1.16px;
+            left: 9px;
+            top: 1px;
             background: black;
         }
         
-        .nav-main {
+        .header-contacts {
             position: absolute;
-            left: 50px;
-            top: 133px;
-            font-size: 18px;
-            font-weight: 400;
-        }
-        
-        .nav-lots {
-            position: absolute;
-            left: 148.48px;
-            top: 133px;
-            font-size: 18px;
-            font-weight: 400;
-        }
-        
-        .nav-about {
-            position: absolute;
-            left: 331.48px;
-            top: 133px;
-            font-size: 18px;
-            font-weight: 400;
-        }
-        
-        .nav-divider {
-            width: 6px;
-            height: 6px;
-            position: absolute;
-            border-radius: 9999px;
-            border: 0.50px black solid;
-        }
-        
-        .divider-1 {
-            left: 130px;
-            top: 142px;
-        }
-        
-        .divider-2 {
-            left: 312px;
-            top: 142px;
-        }
-        
-        .underline {
-            height: 0px;
-            outline: 1px black solid;
-            outline-offset: -0.50px;
-        }
-        
-        .underline-1 {
-            width: 151px;
-            left: 148.48px;
-            top: 155px;
-        }
-        
-        .underline-2 {
-            width: 110px;
-            left: 331.48px;
-            top: 155px;
-        }
-        
-        .contact-phone {
-            position: absolute;
-            width: 239.48px;
-            height: 24px;
-            left: 810.52px;
+            right: 50px;
             top: 95px;
-            font-size: 18px;
-            line-height: 24.30px;
+            text-align: right;
         }
         
-        .contact-email {
+        .header-contacts p {
+            font-size: 18px;
+            line-height: 24px;
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .header-contacts a {
+            display: block;
+            padding-bottom: 2px;
+        }
+        
+        .header-contacts-underline {
             position: absolute;
-            width: 239.48px;
-            height: 24px;
-            left: 810px;
-            top: 119px;
-            font-size: 18px;
-            line-height: 24.30px;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            background: black;
         }
         
-        .contact-address {
-            position: absolute;
-            width: 236.49px;
-            left: 811px;
-            top: 144px;
-            font-size: 18px;
-            line-height: 24.30px;
+        .underline-phone {
+            width: 132px;
         }
         
-        .contact-underline-1 {
-            width: 131.71px;
-            height: 0px;
-            left: 810.52px;
-            top: 119px;
-        }
-        
-        .contact-underline-2 {
-            width: 129.72px;
-            height: 0px;
-            left: 810px;
-            top: 143px;
+        .underline-email {
+            width: 132px;
         }
         
         /* Стили для cover section */
@@ -171,124 +160,89 @@
             height: 757px;
             position: relative;
             overflow: hidden;
+            margin-bottom: 80px;
         }
         
         .cover-img {
             width: 1100px;
             height: 757px;
             position: absolute;
-            left: 0px;
-            top: 0px;
+            left: 0;
+            top: 0;
+            object-fit: cover;
         }
         
         .cover-overlay {
             width: 1100px;
             height: 757px;
             position: absolute;
-            left: 0px;
-            top: 0px;
-            opacity: 0.60;
-            background: black;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, 0.6);
         }
         
         .cover-title {
             position: absolute;
             left: 50px;
-            top: 668px;
+            bottom: 89px;
             color: white;
             font-size: 22px;
             font-weight: 400;
             text-transform: uppercase;
             line-height: 28px;
-        }
-        
-        .cover-title-word1 {
-            letter-spacing: normal;
-        }
-        
-        .cover-title-word2 {
-            letter-spacing: 19.80px;
-        }
-        
-        .cover-title-word3 {
-            letter-spacing: normal;
-        }
-        
-        .cover-title-word4 {
-            letter-spacing: 17.60px;
-        }
-        
-        .cover-title-word5 {
-            letter-spacing: 24.20px;
-        }
-        
-        .cover-title-word6 {
-            letter-spacing: 17.60px;
-        }
-        
-        .cover-title-word7 {
-            letter-spacing: 19.80px;
-        }
-        
-        .cover-title-word8 {
-            letter-spacing: 17.60px;
+            letter-spacing: 0.3em;
         }
         
         .cover-button {
             width: 256px;
             height: 51px;
             position: absolute;
-            left: 794px;
-            top: 656px;
-            border: 1px white solid;
+            right: 50px;
+            bottom: 101px;
+            border: 1px solid white;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: background 0.3s;
+        }
+        
+        .cover-button:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .cover-button-text {
-            text-align: center;
             color: white;
             font-size: 22px;
             font-weight: 500;
             text-transform: uppercase;
         }
         
-        .cover-word1 {
+        .cover-word {
+            color: white;
+            font-size: 100px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 115px;
+            letter-spacing: 30px;
             position: absolute;
+        }
+        
+        .cover-word-1 {
             left: 50px;
             top: 165px;
-            color: white;
-            font-size: 100px;
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 115px;
-            letter-spacing: 30px;
         }
         
-        .cover-word2 {
-            position: absolute;
-            left: 380.50px;
+        .cover-word-2 {
+            left: 380px;
             top: 300px;
-            color: white;
-            font-size: 100px;
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 115px;
-            letter-spacing: 30px;
             text-align: center;
+            width: 100%;
+            margin-left: -165px;
         }
         
-        .cover-word3 {
-            position: absolute;
-            left: 663px;
+        .cover-word-3 {
+            right: 50px;
             top: 435px;
-            color: white;
-            font-size: 100px;
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 115px;
-            letter-spacing: 30px;
             text-align: right;
         }
         
@@ -296,8 +250,8 @@
         .lots {
             width: 100%;
             position: relative;
-            padding: 40px;
-            margin-top: 40px;
+            padding: 0 40px;
+            margin-bottom: 100px;
         }
         
         .lots-title {
@@ -306,6 +260,7 @@
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 40px;
+            padding-left: 40px;
         }
         
         .lots-grid {
@@ -318,23 +273,25 @@
             width: 334px;
             height: 596px;
             position: relative;
+            flex-shrink: 0;
         }
         
         .lot-img {
             width: 100%;
             height: 100%;
             position: absolute;
-            left: 0px;
-            top: 0px;
+            left: 0;
+            top: 0;
+            object-fit: cover;
         }
         
         .lot-overlay {
             width: 100%;
             height: 100%;
             position: absolute;
-            left: 0px;
-            top: 0px;
-            background: rgba(0, 0, 0, 0.60);
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, 0.6);
             padding: 48px 40px;
             display: flex;
             flex-direction: column;
@@ -347,7 +304,7 @@
             font-weight: 700;
             text-decoration: underline;
             text-transform: uppercase;
-            line-height: 26.40px;
+            line-height: 26px;
             margin-bottom: 20px;
         }
         
@@ -365,12 +322,13 @@
             margin-left: 40px;
             position: relative;
             display: inline-block;
+            padding-bottom: 5px;
         }
         
         .lots-more::after {
             content: "";
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 191px;
             height: 1px;
@@ -381,8 +339,9 @@
         .about {
             width: 100%;
             position: relative;
-            padding: 133px 40px;
+            padding: 0 40px 100px;
             display: flex;
+            align-items: flex-start;
         }
         
         .about-logo {
@@ -415,21 +374,21 @@
             position: absolute;
             left: 7px;
             top: 3px;
-            outline: 6px white solid;
-            outline-offset: -3px;
+            border: 3px solid white;
         }
         
         .logo-white-bg {
-            width: 141.54px;
-            height: 112.55px;
+            width: 142px;
+            height: 113px;
             position: absolute;
-            left: 4.42px;
-            top: 1.25px;
+            left: 4px;
+            top: 1px;
             background: white;
         }
         
         .about-content {
             max-width: 693px;
+            padding-top: 10px;
         }
         
         .about-title {
@@ -437,7 +396,7 @@
             font-size: 40px;
             font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 147px;
+            margin-bottom: 100px;
         }
         
         .about-text {
@@ -445,15 +404,14 @@
             font-size: 20px;
             font-weight: 400;
             line-height: 24px;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
         }
         
         /* Стили для footer */
         footer {
             width: 100%;
             position: relative;
-            padding: 20px 50px;
-            height: 120px;
+            padding: 0 50px 50px;
             display: flex;
             justify-content: space-between;
         }
@@ -463,11 +421,12 @@
             flex-direction: column;
         }
         
-        .footer-phone, .footer-email, .footer-address {
+        .footer-contacts p {
             font-size: 18px;
-            line-height: 24.30px;
+            line-height: 24px;
+            margin-bottom: 15px;
             position: relative;
-            padding-left: 10px;
+            padding-bottom: 5px;
         }
         
         .footer-underline {
@@ -492,37 +451,33 @@
             align-items: center;
         }
         
-        .footer-nav-main {
+        .footer-nav a {
             font-size: 18px;
-            margin-bottom: 22px;
-        }
-        
-        .footer-nav-lots {
-            font-size: 18px;
-            margin-bottom: 21px;
+            margin-bottom: 20px;
             position: relative;
         }
         
-        .footer-nav-lots::after {
+        .footer-nav a:nth-child(2) {
+            margin-bottom: 18px;
+        }
+        
+        .footer-nav a:nth-child(2)::after {
             content: "";
             position: absolute;
             bottom: -10px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 107px;
             height: 1px;
             background: black;
         }
         
-        .footer-nav-about {
-            font-size: 18px;
-            position: relative;
-        }
-        
-        .footer-nav-about::after {
+        .footer-nav a:last-child::after {
             content: "";
             position: absolute;
             bottom: -10px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 146px;
             height: 1px;
             background: black;
@@ -537,10 +492,15 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            border: 1px black solid;
+            border: 1px solid black;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: background 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: rgba(0, 0, 0, 0.1);
         }
         
         .social-icon-inner {
@@ -553,8 +513,8 @@
         }
         
         .icon-vk {
-            width: 8.41px;
-            height: 10.13px;
+            width: 8px;
+            height: 10px;
         }
         
         .icon-pinterest {
@@ -565,68 +525,67 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul style="list-style: none; display: flex; gap: 32px;">
-                <li><a href="#" style="text-decoration: none; color: inherit;">главная</a></li>
-                <li><a href="#lots" style="text-decoration: none; color: inherit;">посмотреть лоты</a></li>
-                <li><a href="#about" style="text-decoration: none; color: inherit;">об аукционе</a></li>
-            </ul>
+        <nav class="header-nav">
+            <a href="#">главная</a>
+            <a href="#lots">посмотреть лоты</a>
+            <a href="#about">об аукционе</a>
         </nav>
         
-        <a href="#" class="logo">
+        <div class="header-nav-underline underline-lots"></div>
+        <div class="header-nav-underline underline-about"></div>
+        
+        <a href="#" class="logo-link">
             <div class="logo-inner"></div>
             <div class="logo-bg"></div>
         </a>
         
-        <address style="position: absolute; right: 50px; top: 95px; text-align: right;">
-            <p><a href="tel:+99995555555" style="text-decoration: none; color: inherit;">+9 999 555 5555</a></p>
-            <p><a href="mailto:info@sobaka.ge" style="text-decoration: none; color: inherit;">info@sobaka.ge</a></p>
-            <p>наб. Принсенграхт 263-265, Амстердам</p>
+        <address class="header-contacts">
+            <p>
+                <a href="tel:+99995555555">+9 999 555 5555</a>
+                <span class="header-contacts-underline underline-phone"></span>
+            </p>
+            <p>
+                <a href="mailto:info@sobaka.ge">info@sobaka.ge</a>
+                <span class="header-contacts-underline underline-email"></span>
+            </p>
+            <p>наб. Принсенграхт 263-265,<br>Амстердам</p>
         </address>
     </header>
 
     <main>
         <section class="cover">
-            <img class="cover-img" src="https://placehold.co/1100x757" alt="Аукцион вещей, в которые никто не верил" />
+            <img class="cover-img" src="https://placehold.co/1100x757/000000/FFFFFF/png?text=Аукцион+вещей" alt="Аукцион вещей, в которые никто не верил" />
             <div class="cover-overlay"></div>
             <h1 class="cover-title">
-                <span class="cover-title-word1">Аукцион</span>
-                <span class="cover-title-word2"> </span>
-                <span class="cover-title-word3">вещей,</span>
-                <span class="cover-title-word4"> </span>
-                <span class="cover-title-word5">в</span>
-                <span class="cover-title-word6">которые</span>
-                <span class="cover-title-word7"> </span>
-                <span class="cover-title-word8">никто</span>
-                <span> не верил</span>
+                Аукцион вещей, в которые никто не верил
             </h1>
-            <div class="cover-button">
+            <a href="#" class="cover-button">
                 <div class="cover-button-text">Сделать ставку</div>
-            </div>
-            <div class="cover-word1">оНО</div>
-            <div class="cover-word2">ТЕБЕ</div>
-            <div class="cover-word3">НАДО</div>
+            </a>
+            <div class="cover-word cover-word-1">оНО</div>
+            <div class="cover-word cover-word-2">ТЕБЕ</div>
+            <div class="cover-word cover-word-3">НАДО</div>
         </section>
 
         <section id="lots" class="lots">
             <h2 class="lots-title">Лоты</h2>
             <div class="lots-grid">
                 <article class="lot-card">
-                    <img class="lot-img" src="https://placehold.co/334x596" alt="Фильм режиссёра, который бросил киношколу" />
+                    <img class="lot-img" src="https://placehold.co/334x596/000000/FFFFFF/png?text=Фильм" alt="Фильм режиссёра, который бросил киношколу" />
                     <div class="lot-overlay">
                         <h3 class="lot-name">Фильм режиссёра, который бросил киношколу</h3>
                         <p class="lot-description">Не просто бросил, а ушёл с первой лекции. Какой была бы ваша ставка, если бы вы не знали, что режиссёр — Пол Томас Андерсон?</p>
                     </div>
                 </article>
                 <article class="lot-card">
-                    <img class="lot-img" src="https://placehold.co/334x596" alt="Книга, где описан один скучный день из жизни рекламного агента" />
+                    <img class="lot-img" src="https://placehold.co/334x596/000000/FFFFFF/png?text=Книга" alt="Книга, где описан один скучный день из жизни рекламного агента" />
                     <div class="lot-overlay">
                         <h3 class="lot-name">Книга, где описан один скучный день из жизни рекламного агента</h3>
                         <p class="lot-description">Объёмом почти в тысячу страниц. Иногда без знаков препинания и с переходами на древнеанглийский. В ней одновременно рассказывается о 16 июня 1904 года и об истории литературы, начиная с античных времён. И это всё накладывается на эпическую поэму Гомера. Сколько бы вы поставили на «Улисса» Джеймса Джойса?</p>
                     </div>
                 </article>
                 <article class="lot-card">
-                    <img class="lot-img" src="https://placehold.co/334x596" alt="Картина, которую повторит даже 5-летний сын маминой подруги" />
+                    <img class="lot-img" src="https://placehold.co/334x596/000000/FFFFFF/png?text=Картина" alt="Картина, которую повторит даже 5-летний сын маминой подруги" />
                     <div class="lot-overlay">
                         <h3 class="lot-name">Картина, которую повторит даже 5-летний сын маминой подруги</h3>
                         <p class="lot-description">Ну действительно, там линия, тут кружочек, а здесь и вовсе что-то похожее на инфузорию-туфельку. Никаких полей, лесов, котиков... Сколько бы вы на такое поставили, если бы не знали, что это — одна из революционных работ Кандинского?</p>
@@ -655,21 +614,21 @@
 
     <footer>
         <address class="footer-contacts">
-            <p class="footer-phone">
-                <a href="tel:+99995555555" style="text-decoration: none; color: inherit;">+9 999 555 5555</a>
+            <p>
+                <a href="tel:+99995555555">+9 999 555 5555</a>
                 <span class="footer-underline footer-phone-underline"></span>
             </p>
-            <p class="footer-email">
-                <a href="mailto:info@sobaka.ge" style="text-decoration: none; color: inherit;">info@sobaka.ge</a>
+            <p>
+                <a href="mailto:info@sobaka.ge">info@sobaka.ge</a>
                 <span class="footer-underline footer-email-underline"></span>
             </p>
-            <p class="footer-address">наб. Принсенграхт 263-265, Амстердам</p>
+            <p>наб. Принсенграхт 263-265,<br>Амстердам</p>
         </address>
         
         <nav class="footer-nav">
-            <a href="#" class="footer-nav-main">главная</a>
-            <a href="#lots" class="footer-nav-lots">посмотреть лоты</a>
-            <a href="#about" class="footer-nav-about">об аукционе</a>
+            <a href="#">главная</a>
+            <a href="#lots">посмотреть лоты</a>
+            <a href="#about">об аукционе</a>
         </nav>
         
         <div class="footer-social">

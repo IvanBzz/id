@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Оно тебе надо — аукцион вещей, в которые никто не верил</title>
+
 
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet" />
 
@@ -26,14 +27,14 @@
             border-bottom: 1px solid black;
             position: relative;
         }
-        header nav a {
+        header nav a, footer .footer-links a {
             margin: 0 15px;
             font-size: 18px;
             color: black;
             text-decoration: none;
             font-weight: 400;
         }
-        header nav a:hover {
+        header nav a:hover, footer .footer-links a:hover {
             text-decoration: underline;
         }
         .logo-link {
@@ -73,11 +74,13 @@
             position: relative;
             width: 1100px;
             height: 757px;
+            user-select: none;
         }
         #cover img {
             width: 1100px;
             height: 757px;
             object-fit: cover;
+            display: block;
         }
         #cover .overlay {
             position: absolute;
@@ -87,41 +90,27 @@
             top: 0;
             left: 0;
         }
-        #cover .text-top-left {
+        #cover .text-top-left, #cover .text-center, #cover .text-right {
             position: absolute;
+            color: white;
+            font-size: 100px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 30px;
+            line-height: 115px;
+            user-select: none;
+        }
+        #cover .text-top-left {
             top: 165px;
             left: 50px;
-            color: white;
-            font-size: 100px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 30px;
-            line-height: 115px;
-            user-select: none;
         }
         #cover .text-center {
-            position: absolute;
             top: 295px;
             left: 380.5px;
-            color: white;
-            font-size: 100px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 30px;
-            line-height: 115px;
-            user-select: none;
         }
         #cover .text-right {
-            position: absolute;
             top: 435px;
             right: 50px;
-            color: white;
-            font-size: 100px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 30px;
-            line-height: 115px;
-            user-select: none;
         }
         #cover .btn-bid {
             position: absolute;
@@ -227,25 +216,6 @@
             justify-content: space-between;
             align-items: center;
         }
-        footer .footer-links a {
-            margin: 0 15px;
-            color: black;
-            text-decoration: none;
-        }
-        footer .footer-links a:hover {
-            text-decoration: underline;
-        }
-        footer .contacts {
-            text-align: right;
-            line-height: 24px;
-        }
-        footer .contacts a {
-            color: black;
-            text-decoration: none;
-        }
-        footer .contacts a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -264,7 +234,6 @@
         <address>наб. Принсенграхт 263-265, Амстердам</address>
     </div>
 </header>
-
 <main>
     <section id="cover" role="region" aria-label="Главный баннер аукциона">
         <img src="https://placehold.co/1100x757" alt="Главный баннер аукциона" />
@@ -275,7 +244,6 @@
         <div class="btn-bid" role="button" tabindex="0">Сделать ставку</div>
         <div class="title-bid">Аукцион вещей, в которые никто не верил</div>
     </section>
-
     <section id="lots" aria-label="Лоты аукциона">
         <h2>Лоты</h2>
         <div class="lot-container">
@@ -286,7 +254,6 @@
                     <p>Ну действительно, там линия, тут кружочек, а здесь и вовсе что-то похожее на инфузорию-туфельку. Никаких полей, лесов, котиков... Сколько бы вы на такое поставили, если бы не знали, что это — одна из революционных работ Кандинского?</p>
                 </div>
             </article>
-
             <article class="lot" tabindex="0" aria-label="Книга, где описан один скучный день из жизни рекламного агента">
                 <img src="https://placehold.co/334x596" alt="Книга 'Улисс' Джеймса Джойса" />
                 <div class="overlay">
@@ -294,7 +261,6 @@
                     <p>Объёмом почти в тысячу страниц. Иногда без знаков препинания и с переходами на древнеанглийский. В ней одновременно рассказывается о 16 июня 1904 года и об истории литературы, начиная с античных времён. И это всё накладывается на эпическую поэму Гомера. Сколько бы вы поставили на «Улисса» Джеймса Джойса?</p>
                 </div>
             </article>
-
             <article class="lot" tabindex="0" aria-label="Фильм режиссёра, который бросил киношколу">
                 <img src="https://placehold.co/334x596" alt="Фильм Пол Томас Андерсон" />
                 <div class="overlay">
@@ -304,7 +270,6 @@
             </article>
         </div>
     </section>
-
     <section id="about" aria-label="Информация об аукционе">
         <h2>Об аукционе</h2>
         <div class="text-block">
@@ -313,7 +278,6 @@
         </div>
     </section>
 </main>
-
 <footer>
     <nav class="footer-links" aria-label="Навигация в подвале">
         <a href="#about">об аукционе</a>

@@ -1,870 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="utf-8" />
-  <title>Аукцион вещей</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
-  <style>
-    /* Reset and base styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    html, body {
-      margin: 0;
-      height: 100%;
-    }
-
-    button:focus-visible {
-      outline: 2px solid #4a90e2 !important;
-      outline: -webkit-focus-ring-color auto 5px !important;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Main styles */
-    .element {
-      background-color: #ffffff;
-      width: 100%;
-      min-width: 1100px;
-      min-height: 3028px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .element .header {
-      width: 1100px;
-      height: 293px;
-      position: relative;
-      background-color: transparent;
-    }
-
-    .element .contacts {
-      position: absolute;
-      top: 95px;
-      right: 48px;
-      width: 242px;
-      height: 98px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .element .div {
-      margin-left: 0.5px;
-      width: 241.48px;
-      height: 24px;
-      position: relative;
-    }
-
-    .element .line {
-      position: absolute;
-      top: 23px;
-      left: 0;
-      width: 132px;
-      height: 1px;
-      object-fit: cover;
-    }
-
-    .element .text-wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 239px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      letter-spacing: 0;
-      line-height: 24.3px;
-      white-space: nowrap;
-    }
-
-    .element .info-sobaka-ge {
-      width: 241.48px;
-      height: 24px;
-      position: relative;
-    }
-
-    .element .img {
-      position: absolute;
-      top: 23px;
-      left: 0;
-      width: 130px;
-      height: 1px;
-      object-fit: cover;
-    }
-
-    .element .p {
-      margin-left: 1.0px;
-      width: 236.49px;
-      height: 49px;
-      margin-top: 1px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      letter-spacing: 0;
-      line-height: 24.3px;
-    }
-
-    .element .logo-link {
-      position: absolute;
-      top: 92px;
-      left: calc(50.00% - 74px);
-      width: 148px;
-      height: 105px;
-      display: block;
-    }
-
-    .element .logo {
-      width: 100%;
-      height: 100%;
-    }
-
-    .element .menu {
-      position: absolute;
-      top: 133px;
-      left: 50px;
-      width: 393px;
-      height: 22px;
-      display: flex;
-    }
-
-    .element .text-wrapper-2 {
-      width: 67px;
-      height: 21px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      letter-spacing: 0;
-      line-height: normal;
-      white-space: nowrap;
-    }
-
-    .element .view {
-      width: 171.48px;
-      height: 22px;
-      position: relative;
-      margin-left: 13px;
-    }
-
-    .element .line-2 {
-      position: absolute;
-      top: 21px;
-      left: 18px;
-      width: 151px;
-      height: 1px;
-      object-fit: cover;
-    }
-
-    .element .text-wrapper-3 {
-      position: absolute;
-      top: 0;
-      left: 18px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      letter-spacing: 0;
-      line-height: normal;
-      white-space: nowrap;
-    }
-
-    .element .list-marker {
-      position: absolute;
-      top: 9px;
-      left: 0;
-      width: 6px;
-      height: 6px;
-      border-radius: 3px;
-      border: 0.5px solid;
-      border-color: #000000;
-    }
-
-    .element .view-2 {
-      width: 131.48px;
-      height: 22px;
-      position: relative;
-      margin-left: 10.5px;
-    }
-
-    .element .line-3 {
-      position: absolute;
-      top: 21px;
-      left: 19px;
-      width: 110px;
-      height: 1px;
-      object-fit: cover;
-    }
-
-    .element .text-wrapper-4 {
-      position: absolute;
-      top: 0;
-      left: 19px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      letter-spacing: 0;
-      line-height: normal;
-      white-space: nowrap;
-    }
-
-    .element .cover {
-      width: 1100px;
-      height: 757px;
-      position: relative;
-      background-image: url(https://c.animaapp.com/mfpbqlmyZS8SDr/img/lotus-flower.png);
-      background-size: 100% 100%;
-    }
-
-    .element .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 1100px;
-      height: 757px;
-      background-color: #000000;
-      opacity: 0.6;
-    }
-
-    .element .description {
-      position: absolute;
-      top: 656px;
-      left: 50px;
-      width: 1002px;
-      height: 51px;
-      display: flex;
-      gap: 107px;
-    }
-
-    .element .subline {
-      margin-top: 12px;
-      width: 637px;
-      height: 28px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #ffffff;
-      font-size: 22px;
-      line-height: 28px;
-      white-space: nowrap;
-    }
-
-    .element .span {
-      letter-spacing: 0;
-    }
-
-    .element .button {
-      all: unset;
-      box-sizing: border-box;
-      width: 258px;
-      height: 51px;
-      position: relative;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-    }
-
-    .element .button:hover {
-      opacity: 0.8;
-    }
-
-    .element .rectangle {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 256px;
-      height: 51px;
-      border: 1px solid;
-      border-color: #ffffff;
-    }
-
-    .element .text-wrapper-5 {
-      position: absolute;
-      top: 12px;
-      left: calc(50.00% - 98px);
-      width: 193px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 500;
-      color: #ffffff;
-      font-size: 22px;
-      text-align: center;
-      letter-spacing: 0;
-      line-height: normal;
-    }
-
-    .element .title {
-      position: absolute;
-      top: 165px;
-      left: 50px;
-      width: 1006px;
-      height: 385px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .element .text-wrapper-6 {
-      width: 286px;
-      height: 115px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 700;
-      color: #ffffff;
-      font-size: 100px;
-      letter-spacing: 30.00px;
-      line-height: 115.0px;
-      white-space: nowrap;
-    }
-
-    .element .text-wrapper-7 {
-      margin-left: -6px;
-      height: 115px;
-      width: 339px;
-      align-self: center;
-      font-family: "Raleway", Helvetica;
-      font-weight: 700;
-      color: #ffffff;
-      font-size: 100px;
-      text-align: center;
-      letter-spacing: 30.00px;
-      line-height: 115.0px;
-      white-space: nowrap;
-    }
-
-    .element .text-wrapper-8 {
-      margin-left: 613px;
-      width: 387px;
-      height: 115px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 700;
-      color: #ffffff;
-      font-size: 100px;
-      text-align: right;
-      letter-spacing: 30.00px;
-      line-height: 115.0px;
-      white-space: nowrap;
-    }
-
-    .element .lots {
-      margin-left: 24px;
-      width: 1052px;
-      height: 723px;
-      position: relative;
-      margin-top: 180px;
-    }
-
-    .element .more {
-      position: absolute;
-      left: 40px;
-      bottom: -2px;
-      width: 194px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .element .text-wrapper-9 {
-      width: 192px;
-      height: 23px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 20px;
-      letter-spacing: 0;
-      line-height: normal;
-      white-space: nowrap;
-    }
-
-    .element .line-4 {
-      width: 191px;
-      margin-bottom: 1px;
-      height: 1px;
-      object-fit: cover;
-    }
-
-    .element .frame {
-      left: 718px;
-      position: absolute;
-      top: 74px;
-      width: 334px;
-      height: 596px;
-      display: flex;
-    }
-
-    .element .lot {
-      width: 338px;
-      height: 596px;
-      position: relative;
-    }
-
-    .element .photo {
-      position: absolute;
-      width: 98.82%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      object-fit: cover;
-    }
-
-    .element .overlay-2 {
-      position: absolute;
-      width: 98.82%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-color: #00000099;
-    }
-
-    .element .text-wrapper-10 {
-      position: absolute;
-      width: calc(100% - 84px);
-      left: 40px;
-      bottom: 48px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #ffffff;
-      font-size: 20px;
-      letter-spacing: 0;
-      line-height: 24.0px;
-    }
-
-    .element .text-wrapper-11 {
-      position: absolute;
-      width: calc(100% - 84px);
-      top: 48px;
-      left: 40px;
-      font-weight: 700;
-      color: #ffffff;
-      font-size: 22px;
-      line-height: 26.4px;
-      text-decoration: underline;
-      font-family: "Raleway", Helvetica;
-      letter-spacing: 0;
-    }
-
-    .element .lot-wrapper {
-      left: 359px;
-      position: absolute;
-      top: 74px;
-      width: 334px;
-      height: 596px;
-      display: flex;
-    }
-
-    .element .photo-2 {
-      position: absolute;
-      width: 98.82%;
-      height: 100%;
-      top: 0;
-      left: 0;
-    }
-
-    .element .div-wrapper {
-      left: 0;
-      position: absolute;
-      top: 74px;
-      width: 334px;
-      height: 596px;
-      display: flex;
-    }
-
-    .element .title-2 {
-      position: absolute;
-      top: 0;
-      left: 40px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 700;
-      color: #000000;
-      font-size: 40px;
-      letter-spacing: 0;
-      line-height: normal;
-      white-space: nowrap;
-    }
-
-    .element .about {
-      margin-left: 24px;
-      width: 1052px;
-      height: 595px;
-      margin-top: 120px;
-      display: flex;
-      gap: 72px;
-    }
-
-    .element .logo-column {
-      margin-top: 35px;
-      width: 240px;
-      height: 240px;
-      margin-left: 47px;
-    }
-
-    .element .about-column {
-      margin-top: 133px;
-      width: 693px;
-      height: 449px;
-      display: flex;
-      flex-direction: column;
-      gap: 100px;
-    }
-
-    .element .text-wrapper-12 {
-      width: 291px;
-      height: 47px;
-      margin-top: 3px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 700;
-      color: #000000;
-      font-size: 40px;
-      letter-spacing: 0;
-      line-height: normal;
-      white-space: nowrap;
-    }
-
-    .element .description-block {
-      width: 697px;
-      height: 312px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .element .text-wrapper-13 {
-      width: 688px;
-      height: 120px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 20px;
-      letter-spacing: 0;
-      line-height: 24px;
-    }
-
-    .element .text-wrapper-14 {
-      width: 693px;
-      height: 168px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 20px;
-      letter-spacing: 0;
-      line-height: 24px;
-    }
-
-    .element .footer {
-      width: 1100px;
-      height: 180px;
-      position: relative;
-      margin-top: 180px;
-      background-color: transparent;
-    }
-
-    .element .socials {
-      position: absolute;
-      top: 1px;
-      right: 50px;
-      width: 240px;
-      height: 48px;
-    }
-
-    .element .menu-2 {
-      position: absolute;
-      top: 1px;
-      left: calc(50.00% - 81px);
-      width: 166px;
-      height: 64px;
-    }
-
-    .element .view-3 {
-      position: absolute;
-      top: 42px;
-      left: 22px;
-      width: 121px;
-      height: 22px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .element .text-wrapper-15 {
-      margin-left: -2px;
-      height: 21px;
-      width: 118.8px;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      text-align: center;
-      line-height: normal;
-      font-family: "Raleway", Helvetica;
-      letter-spacing: 0;
-    }
-
-    .element .line-5 {
-      margin-left: -1.8px;
-      width: 107px;
-      height: 1px;
-      object-fit: cover;
-    }
-
-    .element .view-4 {
-      position: absolute;
-      top: 21px;
-      left: 0;
-      width: 166px;
-      height: 22px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .element .text-wrapper-16 {
-      margin-left: -2px;
-      height: 21px;
-      width: 163.9px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      text-align: center;
-      letter-spacing: 0;
-      line-height: normal;
-    }
-
-    .element .line-6 {
-      margin-left: -1.9px;
-      width: 146px;
-      height: 1px;
-      object-fit: cover;
-    }
-
-    .element .text-wrapper-17 {
-      position: absolute;
-      top: 0;
-      left: calc(50.00% - 38px);
-      width: 74px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      text-align: center;
-      letter-spacing: 0;
-      line-height: normal;
-    }
-
-    .element .contacts-2 {
-      position: absolute;
-      top: 0;
-      left: 50px;
-      width: 267px;
-      height: 98px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .element .div-2 {
-      margin-left: 0.6px;
-      width: 266px;
-      height: 24px;
-      position: relative;
-      margin-top: 0;
-    }
-
-    .element .line-7 {
-      position: absolute;
-      top: 23px;
-      left: 1px;
-      width: 131px;
-      height: 1px;
-      object-fit: cover;
-    }
-
-    .element .text-wrapper-18 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 264px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      letter-spacing: 0;
-      line-height: 24.3px;
-      white-space: nowrap;
-    }
-
-    .element .info-sobaka-ge-2 {
-      width: 266px;
-      height: 24px;
-      position: relative;
-      margin-top: 0;
-    }
-
-    .element .text-wrapper-19 {
-      margin-left: 1.1px;
-      width: 260.7px;
-      height: 49px;
-      margin-top: 1px;
-      font-family: "Raleway", Helvetica;
-      font-weight: 400;
-      color: #000000;
-      font-size: 18px;
-      letter-spacing: 0;
-      line-height: 24.3px;
-    }
-  </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Оно тебе надо — аукцион вещей, в которые никто не верил</title>
+
+  <!-- 1) Сначала шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- 2) Потом стили (путь к файлу: styles/styles.css) -->
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-  <div class="element">
-    <header class="header">
-      <div class="contacts">
-        <div class="div">
-          <img class="line" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-4-1.svg" />
-          <a class="text-wrapper" href="tel:+99995555555">+9 999 555 5555</a>
-        </div>
-        <div class="info-sobaka-ge">
-          <img class="img" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-5-1.svg" />
-          <a class="text-wrapper" href="mailto:info@sobaka.ge">info@sobaka.ge</a>
-        </div>
-        <p class="p">наб. Принсенграхт 263- 265, Амстердам</p>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Главная навигация">
+      <a class="nav__link" href="#">главная</a>
+      <a class="nav__link" href="#lots">посмотреть лоты</a>
+      <a class="nav__link" href="#about">об аукционе</a>
+    </nav>
+
+    <!-- Логотип целиком — ссылка (требование) -->
+    <a class="logo" href="/" aria-label="Перейти на главную">
+      <span class="logo__bg" aria-hidden="true"></span>
+      <span class="logo__frame" aria-hidden="true"></span>
+    </a>
+
+    <address class="contacts" aria-label="Контакты" role="group">
+      <a class="contacts__phone" href="tel:+99995555555">+9 999 555 5555</a>
+      <a class="contacts__email" href="mailto:info@sobaka.ge">info@sobaka.ge</a>
+      <p class="contacts__addr">наб. Принсенграхт 263-265,<br>Амстердам</p>
+    </address>
+  </header>
+
+  <main>
+    <!-- COVER: единственный h1 страницы -->
+    <section class="cover" aria-label="Главный экран">
+      <img class="cover__img" src="images/cover.jpg" alt="Аукцион вещей, в которые никто не верил — фон" />
+      <div class="cover__overlay" aria-hidden="true"></div>
+
+      <h1 class="cover__title">Аукцион вещей, в которые никто не верил</h1>
+
+      <a class="btn cover__btn" href="#" role="button">Сделать ставку</a>
+
+      <!-- декоративные крупные слова — визуал -->
+      <div class="cover-words" aria-hidden="true">
+        <span class="cover-words__item cover-words__item--1">ОНО</span>
+        <span class="cover-words__item cover-words__item--2">ТЕБЕ</span>
+        <span class="cover-words__item cover-words__item--3">НАДО</span>
       </div>
-      <a href="#" class="logo-link">
-        <img class="logo" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/logo.svg" />
-      </a>
-      <div class="menu">
-        <div class="text-wrapper-2">главная</div>
-        <div class="view">
-          <img class="line-2" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-2.svg" />
-          <div class="text-wrapper-3">посмотреть лоты</div>
-          <div class="list-marker"></div>
-        </div>
-        <div class="view-2">
-          <img class="line-3" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-3.svg" />
-          <div class="text-wrapper-4">об аукционе</div>
-          <div class="list-marker"></div>
-        </div>
+    </section>
+
+    <!-- LOTS -->
+    <section id="lots" class="lots" aria-label="Лоты">
+      <h2 class="section-title">Лоты</h2>
+
+      <div class="lots__grid" role="list">
+        <article class="lot-card" role="listitem">
+          <!-- каждая карточка содержит ссылку (требование) -->
+          <a class="lot-card__link" href="#">
+            <img class="lot-card__img" src="images/lot1.jpg" alt="Постер к фильму" />
+            <div class="lot-card__content">
+              <h3 class="lot-card__title">Фильм режиссёра, который бросил киношколу</h3>
+              <p class="lot-card__desc">Не просто бросил, а ушёл с первой лекции. Какой была бы ваша ставка?</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="lot-card" role="listitem">
+          <a class="lot-card__link" href="#">
+            <img class="lot-card__img" src="images/lot2.jpg" alt="Обложка книги" />
+            <div class="lot-card__content">
+              <h3 class="lot-card__title">Книга, где описан один скучный день</h3>
+              <p class="lot-card__desc">Объёмом почти в тысячу страниц. Иногда без знаков препинания.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="lot-card" role="listitem">
+          <a class="lot-card__link" href="#">
+            <img class="lot-card__img" src="images/lot3.jpg" alt="Картина современного художника" />
+            <div class="lot-card__content">
+              <h3 class="lot-card__title">Картина, которую повторит даже 5-летний</h3>
+              <p class="lot-card__desc">Кажется простым, но это революционная работа.</p>
+            </div>
+          </a>
+        </article>
       </div>
-    </header>
-    <main>
-      <section class="cover">
-      <div class="overlay"></div>
-      <div class="description">
-        <p class="subline">
-          <span class="span">АУКЦИОН</span>
-          <span class="span">&nbsp;</span>
-          <span class="span">ВЕЩЕЙ,</span>
-          <span class="span"> В</span>
-          <span class="span">КОТОРЫЕ</span>
-          <span class="span">&nbsp;</span>
-          <span class="span">НИКТО</span>
-          <span class="span">&nbsp;</span>
-          <span class="span">НЕ</span>
-          <span class="span">&nbsp;</span>
-          <span class="span">ВЕРИЛ</span>
-        </p>
-        <button class="button">
-          <div class="rectangle"></div>
-          <div class="text-wrapper-5">СДЕЛАТЬ СТАВКУ</div>
-        </button>
-      </div>
-      <div class="title">
-        <div class="text-wrapper-6">ОНО</div>
-        <div class="text-wrapper-7">ТЕБЕ</div>
-        <div class="text-wrapper-8">НАДО</div>
-      </div>
-      </section>
-      <section class="lots">
-      <div class="more">
-        <div class="text-wrapper-9">посмотреть больше</div>
-        <img class="line-4" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-6.svg" />
-      </div>
-      <div class="frame">
-        <div class="lot">
-          <img class="photo" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/photo.png" />
-          <div class="overlay-2"></div>
-          <p class="text-wrapper-10">
-            Ну действительно, там линия, тут кружочек, а здесь и вовсе что-то похожее на инфузорию-туфельку. Никаких
-            полей, лесов, котиков... Сколько бы вы на такое поставили, если бы не знали, что это — одна из
-            революционных работ Кандинского?
-          </p>
-          <p class="text-wrapper-11">КАРТИНА, КОТОРУЮ ПОВТОРИТ ДАЖЕ 5-ЛЕТНИЙ СЫН МАМИНОЙ ПОДРУГИ</p>
-        </div>
-      </div>
-      <div class="lot-wrapper">
-        <div class="lot">
-          <img class="photo-2" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/photo-1.png" />
-          <div class="overlay-2"></div>
-          <p class="text-wrapper-10">
-            Объёмом почти в тысячу страниц. Иногда без знаков препинания и с переходами на древнеанглийский. В ней
-            одновременно рассказывается о 16 июня 1904 года и об истории литературы, начиная с античных времён. И это
-            всё накладывается на эпическую поэму Гомера. Сколько бы вы поставили на «Улисса» Джеймса Джойса?
-          </p>
-          <p class="text-wrapper-11">КНИГА, ГДЕ ОПИСАН ОДИН СКУЧНЫЙ ДЕНЬ ИЗ ЖИЗНИ РЕКЛАМНОГО АГЕНТА</p>
-        </div>
-      </div>
-      <div class="div-wrapper">
-        <div class="lot">
-          <img class="photo-2" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/photo-2.png" />
-          <div class="overlay-2"></div>
-          <p class="text-wrapper-10">
-            Не просто бросил, а ушёл с первой лекции. Какой была бы ваша ставка, если бы вы не знали, что режиссёр —
-            Пол Томас Андерсон?
-          </p>
-          <p class="text-wrapper-11">ФИЛЬМ РЕЖИССЁРА, КОТОРЫЙ БРОСИЛ КИНОШКОЛУ</p>
+
+      <a class="lots__more" href="#">посмотреть больше</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about" aria-label="Об аукционе">
+      <div class="about__logo" aria-hidden="true">
+        <div class="about__logo-circle">
+          <div class="about__logo-white">
+            <span class="about__logo-white-bg"></span>
+            <span class="about__logo-white-frame"></span>
+          </div>
         </div>
       </div>
-      <div class="title-2">ЛОТЫ</div>
-      </section>
-      <section class="about">
-      <img class="logo-column" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/logo-column.svg" />
-      <div class="about-column">
-        <div class="text-wrapper-12">ОБ АУКЦИОНЕ</div>
-        <div class="description-block">
-          <p class="text-wrapper-13">
-            Здесь вы не встретите очередное пафосное собрание невероятно дорогого антиквариата. Наши лоты вообще не
-            должны были попасть ни на один аукцион. Потому что кому нужен дневник девочки-подростка или картина,
-            которую может нарисовать даже ребёнок? Кому нужны все эти странные вещи, созданные любителями?
-          </p>
-          <p class="text-wrapper-14">
-            Слишком сложные или, наоборот, слишком простые. Опережающие своё время. В пух и прах растерзанные
-            критиками. Непринятые и непонятые. Когда-то они казались просто неудачными. Но, несмотря<br />на критику,
-            кажущуюся простоту или сложность, сейчас без этих лотов невозможно представить современную культуру. Когда
-            в эти вещи не верил никто, продолжали верить их создатели. И сейчас эти лоты стали культовыми.
-          </p>
-        </div>
+
+      <div class="about__content">
+        <h2 class="section-title">Об аукционе</h2>
+        <p class="about__text">Здесь вы не встретите очередное пафосное собрание невероятно дорогого антиквариата. Наши лоты вообще не должны были попасть ни на один аукцион.</p>
+        <p class="about__text">Слишком сложные или, наоборот, слишком простые. Опережающие своё время. Непринятые и непонятые — и всё равно ставшие культовыми.</p>
       </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <img class="socials" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/socials.svg" />
-      <div class="menu-2">
-        <div class="view-3">
-          <div class="text-wrapper-15">об аукционе</div>
-          <img class="line-5" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-8.svg" />
-        </div>
-        <div class="view-4">
-          <div class="text-wrapper-16">посмотреть лоты</div>
-          <img class="line-6" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-7.svg" />
-        </div>
-        <div class="text-wrapper-17">главная</div>
-      </div>
-      <div class="contacts-2">
-        <div class="div-2">
-          <img class="line-7" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-5.svg" />
-          <a class="text-wrapper-18" href="tel:+99995555555">+9 999 555 5555</a>
-        </div>
-        <div class="info-sobaka-ge-2">
-          <img class="line-7" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-5.svg" />
-          <a class="text-wrapper-18" href="mailto:info@sobaka.ge">info@sobaka.ge</a>
-        </div>
-        <div class="text-wrapper-19">наб. Принсенграхт 263-265, Амстердам</div>
-      </div>
-    </footer>
-  </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <address class="footer__contacts">
+      <a class="footer__phone" href="tel:+99995555555">+9 999 555 5555</a>
+      <a class="footer__email" href="mailto:info@sobaka.ge">info@sobaka.ge</a>
+      <p class="footer__addr">наб. Принсенграхт 263-265, Амстердам</p>
+    </address>
+
+    <nav class="footer__nav" aria-label="Навигация футера">
+      <a class="footer__link" href="#">главная</a>
+      <a class="footer__link" href="#lots">посмотреть лоты</a>
+      <a class="footer__link" href="#about">об аукционе</a>
+    </nav>
+
+    <div class="footer__social">
+      <a class="social" href="#" aria-label="YouTube"><img src="images/yt.svg" alt="YouTube"></a>
+      <a class="social" href="#" aria-label="VK"><img src="images/vk.svg" alt="VK"></a>
+      <a class="social" href="#" aria-label="Pinterest"><img src="images/pinterest.svg" alt="Pinterest"></a>
+    </div>
+  </footer>
 </body>
 </html>

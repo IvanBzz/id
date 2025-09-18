@@ -4,8 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="utf-8" />
   <title>Аукцион вещей</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
   <style>
+    @import url("https://fonts.googleapis.com/css?family=Raleway:400,500,700");
     /* Reset and base styles */
     * {
       margin: 0;
@@ -26,6 +26,7 @@
 
     a {
       text-decoration: none;
+      color: inherit;
     }
 
     /* Main styles */
@@ -113,12 +114,18 @@
       line-height: 24.3px;
     }
 
-    .element .logo {
+    .element .logo-link {
       position: absolute;
       top: 92px;
-      left: calc(50.00% - 72px);
+      left: calc(50.00% - 74px);
       width: 148px;
       height: 105px;
+      display: block;
+    }
+
+    .element .logo {
+      width: 100%;
+      height: 100%;
     }
 
     .element .menu {
@@ -262,6 +269,11 @@
       height: 51px;
       position: relative;
       cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .element .button:hover {
+      opacity: 0.8;
     }
 
     .element .rectangle {
@@ -721,7 +733,9 @@
         </div>
         <p class="p">наб. Принсенграхт 263- 265, Амстердам</p>
       </div>
-      <img class="logo" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/logo.svg" />
+      <a href="#" class="logo-link">
+        <img class="logo" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/logo.svg" />
+      </a>
       <div class="menu">
         <div class="text-wrapper-2">главная</div>
         <div class="view">
@@ -736,7 +750,8 @@
         </div>
       </div>
     </header>
-    <div class="cover">
+    <main>
+      <section class="cover">
       <div class="overlay"></div>
       <div class="description">
         <p class="subline">
@@ -762,8 +777,8 @@
         <div class="text-wrapper-7">ТЕБЕ</div>
         <div class="text-wrapper-8">НАДО</div>
       </div>
-    </div>
-    <div class="lots">
+      </section>
+      <section class="lots">
       <div class="more">
         <div class="text-wrapper-9">посмотреть больше</div>
         <img class="line-4" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-6.svg" />
@@ -804,8 +819,8 @@
         </div>
       </div>
       <div class="title-2">ЛОТЫ</div>
-    </div>
-    <div class="about">
+      </section>
+      <section class="about">
       <img class="logo-column" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/logo-column.svg" />
       <div class="about-column">
         <div class="text-wrapper-12">ОБ АУКЦИОНЕ</div>
@@ -823,7 +838,8 @@
           </p>
         </div>
       </div>
-    </div>
+      </section>
+    </main>
     <footer class="footer">
       <img class="socials" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/socials.svg" />
       <div class="menu-2">
@@ -840,11 +856,11 @@
       <div class="contacts-2">
         <div class="div-2">
           <img class="line-7" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-5.svg" />
-          <div class="text-wrapper-18">+9 999 555 5555</div>
+          <a class="text-wrapper-18" href="tel:+99995555555">+9 999 555 5555</a>
         </div>
         <div class="info-sobaka-ge-2">
           <img class="line-7" src="https://c.animaapp.com/mfpbqlmyZS8SDr/img/line-5.svg" />
-          <div class="text-wrapper-18">info@sobaka.ge</div>
+          <a class="text-wrapper-18" href="mailto:info@sobaka.ge">info@sobaka.ge</a>
         </div>
         <div class="text-wrapper-19">наб. Принсенграхт 263-265, Амстердам</div>
       </div>

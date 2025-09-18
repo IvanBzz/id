@@ -1,135 +1,114 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Оно тебе надо — аукцион вещей, в которые никто не верил</title>
 
-  <!-- 1) Сначала шрифты -->
+  <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- 2) Потом стили (путь к файлу: styles/styles.css) -->
+  <!-- Стили -->
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <nav class="nav" aria-label="Главная навигация">
-      <a class="nav__link" href="#">главная</a>
-      <a class="nav__link" href="#lots">посмотреть лоты</a>
-      <a class="nav__link" href="#about">об аукционе</a>
+  <header class="header">
+    <nav class="header-nav">
+      <a href="#">главная</a>
+      <a href="#lots">посмотреть лоты</a>
+      <a href="#about">об аукционе</a>
     </nav>
 
-    <!-- Логотип целиком — ссылка (требование) -->
-    <a class="logo" href="/" aria-label="Перейти на главную">
-      <span class="logo__bg" aria-hidden="true"></span>
-      <span class="logo__frame" aria-hidden="true"></span>
+    <a href="/" class="logo-link">
+      <div class="logo-bg"></div>
+      <div class="logo-inner"></div>
     </a>
 
-    <address class="contacts" aria-label="Контакты" role="group">
-      <a class="contacts__phone" href="tel:+99995555555">+9 999 555 5555</a>
-      <a class="contacts__email" href="mailto:info@sobaka.ge">info@sobaka.ge</a>
-      <p class="contacts__addr">наб. Принсенграхт 263-265,<br>Амстердам</p>
+    <address class="header-contacts">
+      <a href="tel:+99995555555">+9 999 555 5555</a>
+      <a href="mailto:info@sobaka.ge">info@sobaka.ge</a>
+      <p>наб. Принсенграхт 263-265,<br>Амстердам</p>
     </address>
   </header>
 
   <main>
-    <!-- COVER: единственный h1 страницы -->
-    <section class="cover" aria-label="Главный экран">
-      <img class="cover__img" src="images/cover.jpg" alt="Аукцион вещей, в которые никто не верил — фон" />
-      <div class="cover__overlay" aria-hidden="true"></div>
-
-      <h1 class="cover__title">Аукцион вещей, в которые никто не верил</h1>
-
-      <a class="btn cover__btn" href="#" role="button">Сделать ставку</a>
-
-      <!-- декоративные крупные слова — визуал -->
-      <div class="cover-words" aria-hidden="true">
-        <span class="cover-words__item cover-words__item--1">ОНО</span>
-        <span class="cover-words__item cover-words__item--2">ТЕБЕ</span>
-        <span class="cover-words__item cover-words__item--3">НАДО</span>
-      </div>
+    <section class="cover">
+      <img class="cover-img" src="images/cover.jpg" alt="Аукцион вещей, в которые никто не верил">
+      <div class="cover-overlay"></div>
+      <h1 class="cover-title">Аукцион вещей, в которые никто не верил</h1>
+      <a href="#" class="cover-button">
+        <span class="cover-button-text">Сделать ставку</span>
+      </a>
+      <div class="cover-word cover-word-1">ОНО</div>
+      <div class="cover-word cover-word-2">ТЕБЕ</div>
+      <div class="cover-word cover-word-3">НАДО</div>
     </section>
 
-    <!-- LOTS -->
-    <section id="lots" class="lots" aria-label="Лоты">
-      <h2 class="section-title">Лоты</h2>
-
-      <div class="lots__grid" role="list">
-        <article class="lot-card" role="listitem">
-          <!-- каждая карточка содержит ссылку (требование) -->
-          <a class="lot-card__link" href="#">
-            <img class="lot-card__img" src="images/lot1.jpg" alt="Постер к фильму" />
-            <div class="lot-card__content">
-              <h3 class="lot-card__title">Фильм режиссёра, который бросил киношколу</h3>
-              <p class="lot-card__desc">Не просто бросил, а ушёл с первой лекции. Какой была бы ваша ставка?</p>
-            </div>
-          </a>
+    <section id="lots" class="lots">
+      <h2 class="lots-title">Лоты</h2>
+      <div class="lots-grid">
+        <article class="lot-card">
+          <img class="lot-img" src="images/lot1.jpg" alt="Фильм режиссёра, который бросил киношколу">
+          <div class="lot-overlay">
+            <h3 class="lot-name">Фильм режиссёра, который бросил киношколу</h3>
+            <p class="lot-description">Не просто бросил, а ушёл с первой лекции...</p>
+          </div>
         </article>
-
-        <article class="lot-card" role="listitem">
-          <a class="lot-card__link" href="#">
-            <img class="lot-card__img" src="images/lot2.jpg" alt="Обложка книги" />
-            <div class="lot-card__content">
-              <h3 class="lot-card__title">Книга, где описан один скучный день</h3>
-              <p class="lot-card__desc">Объёмом почти в тысячу страниц. Иногда без знаков препинания.</p>
-            </div>
-          </a>
+        <article class="lot-card">
+          <img class="lot-img" src="images/lot2.jpg" alt="Книга, где описан один скучный день из жизни рекламного агента">
+          <div class="lot-overlay">
+            <h3 class="lot-name">Книга, где описан один скучный день из жизни рекламного агента</h3>
+            <p class="lot-description">Объёмом почти в тысячу страниц...</p>
+          </div>
         </article>
-
-        <article class="lot-card" role="listitem">
-          <a class="lot-card__link" href="#">
-            <img class="lot-card__img" src="images/lot3.jpg" alt="Картина современного художника" />
-            <div class="lot-card__content">
-              <h3 class="lot-card__title">Картина, которую повторит даже 5-летний</h3>
-              <p class="lot-card__desc">Кажется простым, но это революционная работа.</p>
-            </div>
-          </a>
+        <article class="lot-card">
+          <img class="lot-img" src="images/lot3.jpg" alt="Картина, которую повторит даже 5-летний сын маминой подруги">
+          <div class="lot-overlay">
+            <h3 class="lot-name">Картина, которую повторит даже 5-летний сын маминой подруги</h3>
+            <p class="lot-description">Ну действительно, там линия, тут кружочек...</p>
+          </div>
         </article>
       </div>
-
-      <a class="lots__more" href="#">посмотреть больше</a>
+      <a href="#" class="lots-more">посмотреть больше</a>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="about" aria-label="Об аукционе">
-      <div class="about__logo" aria-hidden="true">
-        <div class="about__logo-circle">
-          <div class="about__logo-white">
-            <span class="about__logo-white-bg"></span>
-            <span class="about__logo-white-frame"></span>
+    <section id="about" class="about">
+      <div class="about-logo">
+        <div class="logo-circle">
+          <div class="logo-white">
+            <div class="logo-white-bg"></div>
+            <div class="logo-white-inner"></div>
           </div>
         </div>
       </div>
-
-      <div class="about__content">
-        <h2 class="section-title">Об аукционе</h2>
-        <p class="about__text">Здесь вы не встретите очередное пафосное собрание невероятно дорогого антиквариата. Наши лоты вообще не должны были попасть ни на один аукцион.</p>
-        <p class="about__text">Слишком сложные или, наоборот, слишком простые. Опережающие своё время. Непринятые и непонятые — и всё равно ставшие культовыми.</p>
+      <div class="about-content">
+        <h2 class="about-title">Об аукционе</h2>
+        <p class="about-text">Здесь вы не встретите очередное пафосное собрание...</p>
+        <p class="about-text">Слишком сложные или, наоборот, слишком простые...</p>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer" role="contentinfo">
-    <address class="footer__contacts">
-      <a class="footer__phone" href="tel:+99995555555">+9 999 555 5555</a>
-      <a class="footer__email" href="mailto:info@sobaka.ge">info@sobaka.ge</a>
-      <p class="footer__addr">наб. Принсенграхт 263-265, Амстердам</p>
+  <footer class="footer">
+    <address class="footer-contacts">
+      <a href="tel:+99995555555">+9 999 555 5555</a>
+      <a href="mailto:info@sobaka.ge">info@sobaka.ge</a>
+      <p>наб. Принсенграхт 263-265,<br>Амстердам</p>
     </address>
 
-    <nav class="footer__nav" aria-label="Навигация футера">
-      <a class="footer__link" href="#">главная</a>
-      <a class="footer__link" href="#lots">посмотреть лоты</a>
-      <a class="footer__link" href="#about">об аукционе</a>
+    <nav class="footer-nav">
+      <a href="#">главная</a>
+      <a href="#lots">посмотреть лоты</a>
+      <a href="#about">об аукционе</a>
     </nav>
 
-    <div class="footer__social">
-      <a class="social" href="#" aria-label="YouTube"><img src="images/yt.svg" alt="YouTube"></a>
-      <a class="social" href="#" aria-label="VK"><img src="images/vk.svg" alt="VK"></a>
-      <a class="social" href="#" aria-label="Pinterest"><img src="images/pinterest.svg" alt="Pinterest"></a>
+    <div class="footer-social">
+      <a href="#" class="social-icon"><div class="social-icon-inner icon-yt"></div></a>
+      <a href="#" class="social-icon"><div class="social-icon-inner icon-vk"></div></a>
+      <a href="#" class="social-icon"><div class="social-icon-inner icon-pinterest"></div></a>
     </div>
   </footer>
 </body>
